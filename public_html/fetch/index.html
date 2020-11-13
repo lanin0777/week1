@@ -1,34 +1,29 @@
 <!DOCTYPE html>
-<html>
- <head>
-  <title>Страница HTML5</title><meta charset="utf-8">
- </head>
- <body>
-  <article>
-    <h1>HTML5</h1>
-    <p><a href="http://www.w3c.org">W3C</a></p>
-    <div> 
-      <input id=inp>  
-      <button id=bt>  Send</button>
-      </div>
-    <script>
-        const input = document.querySelector('button')
-            .addEventListener('click', fetch_req);
-        
-        function fetch_req(){
-            const url=document.querySelector('input').value;
-            fetch(url)
-                .then((response) => {
-                    return response.text();
-                })
-                .then((data) => {
-                    document.querySelector('input').value = data;
-                })
-                .catch(reject => {
-                    console.log(reject);
-                });
-        }
-    </script>
-  </article>
- </body>
-</html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" id="inp">
+	<button id="bt">button</button>
+	<script>
+		const listener = () => {
+			const button = document.getElementById('bt');
+			button.addEventListener('click', () => {
+				const input = document.getElementById('inp');
+				const { value } = input;
+				fetch(value)
+					.then((data) => {
+						data.text().then((v) => {
+							input.value = v;
+						});
+					})
+					.catch((e) => console.log(e))
+			});
+		};
+		listener();
+	</script>	
+</body>
+</html>>
