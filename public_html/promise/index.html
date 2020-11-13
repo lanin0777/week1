@@ -1,4 +1,1 @@
-function task(x)
-age=x;
-const checkAge = age => new Promise ((res, rej) => age < 18 ? rej('no') : res('yes'));
-{ return checkAge; }
+function task(x){ return new Promise(res, rej) => x < 18 ? res('yes') : rej('no') }
