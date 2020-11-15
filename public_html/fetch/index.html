@@ -2,20 +2,22 @@
 <html>
   <body>
     <input type="text" id="inp">
-    <button id="bt">send request</button>
-  </body>
+    <button id="bt"   onclick="request()">send request</button>
+  
   
   <script>{
-    document.querySelector('button')
-          .addEventListener('click', request);
-
+   
     async function request() {
-      const input = document.querySelector('input[type=text]');
+      
+      	let adress = document.getElementById("inp").value;
 
-      const url = input.value;
-      const response = await fetch(url);
-
-      input.value = await response.text()
-    }
-  }</script>
+		await fetch(adress)
+			.then((response) => {
+				response.text().then(function (text) {
+					document.getElementById("inp").value = text;
+				}
+				);
+			})
+	}
+     </body>
 </html>
