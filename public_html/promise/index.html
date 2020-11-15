@@ -1,1 +1,5 @@
-function task(x){ return new Promise(res, rej) => x < 18 ? res('yes') : rej('no') }
+function task(x){ 
+  const checkPromise = (Age) =>
+    new Promise((res, rej) => (Age < 18 ? res("yes") : rej("no")))
+  return checkPromise(x);
+}
