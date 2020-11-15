@@ -7,8 +7,7 @@
     },
     "/login/": {
       "Content-Type": "text/plain; charset=UTF-8",
-        "X-Author": "alexlaikn",
-      "Access-Control-Allow-Origin": "*"
+       "Access-Control-Allow-Origin": "*"
     },
     "/sample/": {
       "Content-Type": "text/plain; charset=UTF-8",
