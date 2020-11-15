@@ -1,23 +1,31 @@
 <!DOCTYPE html>
-<html>
-  <body>
-    <input type="text" id="inp">
-    <button id="bt"   onclick="request()">send request</button>
-  
-  
-  <script>{
-   
-    async function request() {
-      
-      	let adress = document.getElementById("inp").value;
-
-		await fetch(adress)
-			.then((response) => {
-				response.text().then(function (text) {
-					document.getElementById("inp").value = text;
-				}
-				);
-			})
-	}
-     </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch</title>
+</head>
+<body>
+    <input type="text" id="inp" value="">
+    <button id="bt">Send</button>
+    <script>
+        const input = document.querySelector('button')
+            .addEventListener('click', fetch_req);
+        
+        function fetch_req(){
+            const url=document.querySelector('input').value;
+            fetch(url)
+                .then((response) => {
+                    return response.text();
+                })
+                .then((data) => {
+                    document.querySelector('input').value = data;
+                })
+                .catch(reject => {
+                    console.log(reject);
+                });
+        }
+    </script>
+</body>
 </html>
+ 
